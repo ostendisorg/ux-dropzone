@@ -70,3 +70,7 @@
     text-align: center;
     color: #999;
 }
+
+.dropzone-preview-image-container{
+    margin-right: 1em;
+}

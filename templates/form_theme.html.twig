@@ -3,7 +3,7 @@
     {%- set attr = attr|merge({ 'data-controller': '', class: (attr.class|default('') ~ ' dropzone-input')|trim}) -%}
 
     <div class="dropzone-container" data-controller="{{ dataController }}">
-        <input type="file" {{ block('widget_attributes') }} data-symfony--ux-dropzone--dropzone-target="input" />
+        <input type="file" {{ block('widget_attributes') }} data-symfony--ux-dropzone--dropzone-target="input" multiple />
 
         <div class="dropzone-placeholder" data-symfony--ux-dropzone--dropzone-target="placeholder">
             {%- if attr.placeholder is defined and attr.placeholder is not none -%}

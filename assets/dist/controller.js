@@ -18,19 +18,24 @@ class default_1 extends Controller {
         this._dispatchEvent('dropzone:clear');
     }
     onInputChange(event) {
-        const file = event.target.files[0];
-        if (typeof file === 'undefined') {
-            return;
+        for (var fileItem in event.target.files) {
+            var file = event.target.files[fileItem];
+
+            if (typeof file === 'undefined') {
+                return;
+            } // Hide the input and placeholder
+
+            this.inputTarget.style.display = 'none';
+            this.placeholderTarget.style.display = 'none';
+            this.previewFilenameTarget.textContent = file.name;
+            this.previewTarget.style.display = 'flex';
+            this.previewImageTarget.style.display = 'none';
+            if (file.type && file.type.indexOf('image') !== -1) {
+                this._populateImagePreview(file);
+            }
+
+            this._dispatchEvent('dropzone:change', file);
         }
-        this.inputTarget.style.display = 'none';
-        this.placeholderTarget.style.display = 'none';
-        this.previewFilenameTarget.textContent = file.name;
-        this.previewTarget.style.display = 'flex';
-        this.previewImageTarget.style.display = 'none';
-        if (file.type && file.type.indexOf('image') !== -1) {
-            this._populateImagePreview(file);
-        }
-        this._dispatchEvent('dropzone:change', file);
     }
     _populateImagePreview(file) {
         if (typeof FileReader === 'undefined') {
@@ -38,8 +43,20 @@ class default_1 extends Controller {
         }
         const reader = new FileReader();
         reader.addEventListener('load', (event) => {
-            this.previewImageTarget.style.display = 'block';
-            this.previewImageTarget.style.backgroundImage = 'url("' + event.target.result + '")';
+            var parentDiv = document.createElement("div");
+            parentDiv.classList.add('dropzone-preview-image-container');
+
+            var divPreview = document.createElement("div");
+            divPreview.classList.add('dropzone-preview-image');
+            divPreview.style.backgroundImage = 'url("' + event.target.result + '")';
+
+            var divFileName = document.createElement("div");
+            divFileName.textContent = file.name;
+
+            parentDiv.appendChild(divPreview);
+            parentDiv.appendChild(divFileName);
+
+            this.previewImageTarget.parentNode.appendChild(parentDiv);
         });
         reader.readAsDataURL(file);
     }

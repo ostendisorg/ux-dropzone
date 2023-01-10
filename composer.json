@@ -1,5 +1,5 @@
 {
-    "name": "symfony/ux-dropzone",
+    "name": "ostendisag/ux-dropzone",
     "type": "symfony-bundle",
     "description": "File input dropzones for Symfony Forms",
     "keywords": [

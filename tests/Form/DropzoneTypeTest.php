@@ -39,7 +39,7 @@ class DropzoneTypeTest extends TestCase
 
         $this->assertSame(
             '<form name="form" method="post" enctype="multipart/form-data"><div id="form"><div><label for="form_photo" class="required">Photo</label><div class="dropzone-container" data-controller="mydropzone symfony--ux-dropzone--dropzone">
-        <input type="file" id="form_photo" name="form[photo]" required="required" data-controller="" class="dropzone-input" data-symfony--ux-dropzone--dropzone-target="input" />
+        <input type="file" id="form_photo" name="form[photo]" required="required" data-controller="" class="dropzone-input" data-symfony--ux-dropzone--dropzone-target="input" multiple />
 
         <div class="dropzone-placeholder" data-symfony--ux-dropzone--dropzone-target="placeholder"></div>
 
