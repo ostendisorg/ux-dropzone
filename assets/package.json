@@ -1,5 +1,5 @@
 {
-    "name": "@ostendisag/ux-dropzone",
+    "name": "@ostendis/ux-dropzone",
     "description": "File input dropzones for Symfony Forms",
     "license": "MIT",
     "version": "1.1.0",
@@ -13,7 +13,7 @@
                 "fetch": "eager",
                 "enabled": true,
                 "autoimport": {
-                    "@ostendisag/ux-dropzone/src/style.css": true
+                    "@osymfony/ux-dropzone/src/style.css": true
                 }
             }
         }
