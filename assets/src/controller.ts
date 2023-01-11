@@ -48,12 +48,14 @@ export default class extends Controller {
     }
 
     onInputChange(event: any) {
-        for (var fileItem in event.target.files) {
-            var file = event.target.files[fileItem];
+        for (let fileItem in event.target.files) {
+            let file = event.target.files[fileItem];
 
             if (typeof file === 'undefined') {
                 return;
             }
+
+            console.log("onInputChange");
 
             // Hide the input and placeholder
             this.inputTarget.style.display = 'none';
@@ -67,6 +69,7 @@ export default class extends Controller {
             this.previewImageTarget.style.display = 'none';
             if (file.type && file.type.indexOf('image') !== -1) {
                 this._populateImagePreview(file);
+                console.log("_populateImagePreview");
             }
 
             this._dispatchEvent('dropzone:change', file);
@@ -82,16 +85,18 @@ export default class extends Controller {
         const reader = new FileReader();
 
         reader.addEventListener('load', (event: any) => {
-            var parentDiv = document.createElement("div");
+            let parentDiv = document.createElement("div");
             parentDiv.classList.add('dropzone-preview-image-container')
 
-            var divPreview = document.createElement("div");
+            let divPreview = document.createElement("div");
             divPreview.classList.add('dropzone-preview-image')
             divPreview.style.backgroundImage = 'url("' + event.target.result + '")'
 
             parentDiv.appendChild(divPreview);
 
             this.previewImageTarget.parentNode.appendChild(parentDiv);
+
+            console.log("appendChild");
         });
 
         reader.readAsDataURL(file);

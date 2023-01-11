@@ -15,11 +15,14 @@ class default_1 extends Controller {
         this.previewImageTarget.style.display = 'none';
         this.previewImageTarget.style.backgroundImage = 'none';
         this.previewFilenameTarget.textContent = '';
+        document.querySelectorAll('.dropzone-preview-image-container').forEach(function (e) {
+            return e.remove();
+        });
         this._dispatchEvent('dropzone:clear');
     }
     onInputChange(event) {
-        for (var fileItem in event.target.files) {
-            var file = event.target.files[fileItem];
+        for (let fileItem in event.target.files) {
+            let file = event.target.files[fileItem];
 
             if (typeof file === 'undefined') {
                 return;
@@ -38,25 +41,23 @@ class default_1 extends Controller {
         }
     }
     _populateImagePreview(file) {
+        let _this2 = this;
+
         if (typeof FileReader === 'undefined') {
             return;
         }
         const reader = new FileReader();
         reader.addEventListener('load', (event) => {
-            var parentDiv = document.createElement("div");
+            let parentDiv = document.createElement("div");
             parentDiv.classList.add('dropzone-preview-image-container');
 
-            var divPreview = document.createElement("div");
+            let divPreview = document.createElement("div");
             divPreview.classList.add('dropzone-preview-image');
             divPreview.style.backgroundImage = 'url("' + event.target.result + '")';
 
-            var divFileName = document.createElement("div");
-            divFileName.textContent = file.name;
-
             parentDiv.appendChild(divPreview);
-            parentDiv.appendChild(divFileName);
 
-            this.previewImageTarget.parentNode.appendChild(parentDiv);
+            _this2.previewImageTarget.parentNode.appendChild(parentDiv);
         });
         reader.readAsDataURL(file);
     }
