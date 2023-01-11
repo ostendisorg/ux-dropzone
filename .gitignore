@@ -4,3 +4,4 @@ composer.lock
 ###> JetBrains IDE ###
 .idea/
 ###< JetBrains IDE ###
+node_modules/
