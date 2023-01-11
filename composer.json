@@ -2,7 +2,6 @@
     "name": "ostendis/ux-dropzone",
     "type": "symfony-bundle",
     "description": "File input dropzones for Symfony Forms",
-    "version": "0.0.2",
     "keywords": [
         "symfony-ux"
     ],

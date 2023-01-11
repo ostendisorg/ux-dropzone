@@ -13,7 +13,7 @@
                 "fetch": "eager",
                 "enabled": true,
                 "autoimport": {
-                    "@osymfony/ux-dropzone/src/style.css": true
+                    "@symfony/ux-dropzone/src/style.css": true
                 }
             }
         }
