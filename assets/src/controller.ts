@@ -55,8 +55,6 @@ export default class extends Controller {
                 return;
             }
 
-            console.log("onInputChange");
-
             // Hide the input and placeholder
             this.inputTarget.style.display = 'none';
             this.placeholderTarget.style.display = 'none';
@@ -69,7 +67,6 @@ export default class extends Controller {
             this.previewImageTarget.style.display = 'none';
             if (file.type && file.type.indexOf('image') !== -1) {
                 this._populateImagePreview(file);
-                console.log("_populateImagePreview");
             }
 
             this._dispatchEvent('dropzone:change', file);
@@ -95,8 +92,6 @@ export default class extends Controller {
             parentDiv.appendChild(divPreview);
 
             this.previewImageTarget.parentNode.appendChild(parentDiv);
-
-            console.log("appendChild");
         });
 
         reader.readAsDataURL(file);
