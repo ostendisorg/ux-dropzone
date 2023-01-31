@@ -33,6 +33,7 @@ class default_1 extends Controller {
             this.previewFilenameTarget.textContent = file.name;
             this.previewTarget.style.display = 'flex';
             this.previewImageTarget.style.display = 'none';
+            console.log("onInputChange");
             if (file.type && file.type.indexOf('image') !== -1) {
                 this._populateImagePreview(file);
             }
@@ -55,9 +56,15 @@ class default_1 extends Controller {
             divPreview.classList.add('dropzone-preview-image');
             divPreview.style.backgroundImage = 'url("' + event.target.result + '")';
 
+            let divFileName = document.createElement("div");
+            divFileName.textContent = file.name;
+
             parentDiv.appendChild(divPreview);
+            parentDiv.appendChild(divFileName);
 
             _this2.previewImageTarget.parentNode.appendChild(parentDiv);
+
+            console.log("appendChild");
         });
         reader.readAsDataURL(file);
     }
