@@ -2,7 +2,7 @@
     "name": "@ostendis/ux-dropzone",
     "description": "File input dropzones for Symfony Forms",
     "license": "MIT",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "dist/controller.js",
     "types": "dist/controller.d.ts",
     "symfony": {
