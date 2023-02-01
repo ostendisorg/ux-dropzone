@@ -5,7 +5,7 @@
     border: 2px dashed #bbb;
     align-items: center;
     padding: 20px 10px;
-    max-width: 300px;
+    max-width: 360px;
 }
 
 .dropzone-input {
@@ -26,6 +26,8 @@
     max-width: 100%;
     flex: 0 0 auto;
     flex-wrap: wrap;
+    overflow: scroll;
+    max-height: 220px;
 }
 
 .dropzone-preview-image {
@@ -77,4 +79,5 @@
 .dropzone-preview-image-container{
     margin-right: 1em;
     display: flex;
+    width: 360px;
 }

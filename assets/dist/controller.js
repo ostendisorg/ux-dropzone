@@ -34,7 +34,9 @@ class default_1 extends Controller {
             this.previewTarget.style.display = 'flex';
             this.previewImageTarget.style.display = 'none';
 
-            this._populateImagePreview(file);
+            if (file.type) {
+                this._populateImagePreview(file);
+            }
 
             this._dispatchEvent('dropzone:change', file);
         }

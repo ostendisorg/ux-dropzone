@@ -66,7 +66,9 @@ export default class extends Controller {
             // If the file is an image, load it and display it as preview
             this.previewImageTarget.style.display = 'none';
 
-            this._populateImagePreview(file);
+            if (file.type) {
+                this._populateImagePreview(file);
+            }
 
             this._dispatchEvent('dropzone:change', file);
         }
