@@ -89,7 +89,11 @@ export default class extends Controller {
             divPreview.classList.add('dropzone-preview-image')
             divPreview.style.backgroundImage = 'url("' + event.target.result + '")'
 
+            let divFileName = document.createElement("div");
+            divFileName.textContent = file.name;
+
             parentDiv.appendChild(divPreview);
+            parentDiv.appendChild(divFileName);
 
             this.previewImageTarget.parentNode.appendChild(parentDiv);
         });
