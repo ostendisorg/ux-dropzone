@@ -76,4 +76,5 @@
 
 .dropzone-preview-image-container{
     margin-right: 1em;
+    display: flex;
 }
